@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Otimistas Consultoria · Captação de recursos e relações governamentais</title>
+<meta name="description" content="Captação de recursos com base em relacionamento governamental para Santas Casas, hospitais filantrópicos, OSCs e instituições culturais. Mais de 10 anos no terceiro setor. Brasília/DF.">
+<meta property="og:title" content="Otimistas Consultoria">
+<meta property="og:description" content="Captação de recursos com base em relacionamento governamental. Foco em autossustentabilidade para organizações do terceiro setor.">
+<meta property="og:image" content="https://otimistasconsultoria.com.br/img/logo-otimistas.png">
+<meta property="og:url" content="https://otimistasconsultoria.com.br/">
+<meta name="theme-color" content="#0E1E45">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://commons.wikimedia.org">
+<link rel="preconnect" href="https://upload.wikimedia.org">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noite:#0E1E45; --marinho:#1F3473; --azul:#2E62A8; --ceu:#5BB4E3; --gelo:#CFE6F5; --coracao:#E2302F;
+  --tinta:#132042; --texto:#3D4A66; --papel:#F3F6FA; --linha:#DCE3EE; --zap:#1FA855;
+  --larg:1240px; --ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--texto);font-family:Archivo,system-ui,sans-serif;font-size:18px;line-height:1.62;font-variation-settings:"wdth" 100;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--azul)}
+:focus-visible{outline:3px solid var(--ceu);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--larg);margin:0 auto;padding:0 28px}
+h1,h2,h3{color:var(--tinta);margin:0;letter-spacing:-.02em;line-height:1.04;font-variation-settings:"wdth" 120}
+h2{font-size:clamp(34px,4.8vw,62px);font-weight:820}
+h3{font-size:21px;font-weight:740;font-variation-settings:"wdth" 108;line-height:1.25;letter-spacing:-.01em}
+p{margin:0 0 1em;max-width:64ch}
+.lead{font-size:clamp(19px,1.9vw,22px);line-height:1.55}
+.sec{padding:clamp(80px,11vw,150px) 0}
+.btn{display:inline-flex;align-items:center;gap:10px;font:inherit;font-weight:700;font-size:16px;text-decoration:none;border-radius:999px;padding:15px 26px;min-height:52px;cursor:pointer;border:1.5px solid transparent;transition:background-color .2s,color .2s,border-color .2s}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-zap{background:var(--zap);color:#fff}.btn-zap:hover{background:#17914A}
+.btn-claro{border-color:rgba(255,255,255,.55);color:#fff}.btn-claro:hover{background:#fff;color:var(--noite);border-color:#fff}
+.btn-escuro{border-color:var(--marinho);color:var(--marinho)}.btn-escuro:hover{background:var(--marinho);color:#fff}
+
+/* ---------- topo: transparente sobre a foto, branco depois ---------- */
+.topo{position:fixed;inset:0 0 auto 0;z-index:60;transition:background-color .35s,box-shadow .35s}
+.topo .wrap{display:flex;align-items:center;gap:22px;min-height:84px}
+.marca{display:flex;align-items:center;background:#fff;border-radius:14px;padding:6px 12px;transition:padding .3s}
+.marca img{height:50px;width:auto}
+.menu{display:flex;gap:2px;margin-left:auto}
+.menu a{color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:9px 13px;border-radius:999px;transition:background-color .2s}
+.menu a:hover{background:rgba(255,255,255,.14)}
+.topo .btn{padding:11px 20px;min-height:46px;font-size:15px}
+.topo.solido{background:rgba(255,255,255,.97);box-shadow:0 1px 0 var(--linha),0 10px 30px -18px rgba(14,30,69,.35);backdrop-filter:blur(10px)}
+.topo.solido .marca{padding:0}
+.topo.solido .menu a{color:var(--tinta)}
+.topo.solido .menu a:hover{background:var(--papel)}
+.topo.solido .btn-claro{border-color:var(--marinho);color:var(--marinho)}
+.topo.solido .btn-claro:hover{background:var(--marinho);color:#fff}
+.abre{display:none;margin-left:auto;background:rgba(255,255,255,.14);border:0;border-radius:12px;padding:10px;cursor:pointer;color:#fff}
+.topo.solido .abre{background:var(--papel);color:var(--marinho)}
+.abre svg{width:26px;height:26px;display:block}
+.so-cel{display:none}
+@media (max-width:1060px){
+  .menu{position:fixed;inset:84px 12px auto 12px;flex-direction:column;background:#fff;padding:14px;border-radius:18px;display:none;box-shadow:0 30px 60px -20px rgba(14,30,69,.45)}
+  .menu.aberto{display:flex}
+  .menu a,.topo.solido .menu a{color:var(--tinta);font-size:18px;padding:13px 14px}
+  .so-cel{display:block}
+  .abre{display:block}
+  .topo .painel-topo{display:none}
+}
+
+/* ---------- abertura cinematográfica ---------- */
+.abertura{position:relative;min-height:100vh;color:#fff;overflow:hidden;background:var(--noite);display:flex;align-items:flex-end}
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease}
+.slide.ativo{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 9s linear}
+.slide.ativo img{transform:scale(1)}
+.desenho{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;background:radial-gradient(120% 90% at 80% 100%,#2E62A8 0%,#14285A 45%,var(--noite) 100%)}
+.desenho svg{width:min(1100px,120%);height:auto;margin:0 -6% -1px 0;opacity:.9}
+.abertura:after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(9,18,44,.92) 0%,rgba(9,18,44,.7) 38%,rgba(9,18,44,.15) 75%),linear-gradient(0deg,rgba(9,18,44,.95) 0%,rgba(9,18,44,0) 40%),linear-gradient(180deg,rgba(9,18,44,.55) 0%,rgba(9,18,44,0) 22%)}
+.abertura .conteudo{position:relative;z-index:2;width:100%;padding:130px 0 clamp(28px,5vh,56px)}
+.abertura .local{display:flex;align-items:center;gap:10px;color:var(--gelo);font-size:15px;font-weight:600;margin-bottom:22px}
+.abertura .local i{width:36px;height:2px;background:var(--ceu)}
+.abertura h1{color:#fff;font-size:clamp(40px,6.2vw,92px);font-weight:860;font-variation-settings:"wdth" 124;letter-spacing:-.035em;line-height:.98;max-width:16ch}
+.abertura h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.abertura h1 .ln span{display:block;transform:translateY(105%);animation:sobe 1.1s var(--ease) forwards}
+.abertura h1 .ln:nth-child(2) span{animation-delay:.12s}.abertura h1 .ln:nth-child(3) span{animation-delay:.24s}
+.abertura .lead{color:rgba(255,255,255,.86);max-width:54ch;margin:28px 0 34px;opacity:0;animation:aparece 1s .6s forwards}
+.abertura .acoes{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:aparece 1s .8s forwards}
+@keyframes sobe{to{transform:none}}
+@keyframes aparece{to{opacity:1}}
+.rodape-ab{display:grid;grid-template-columns:repeat(3,auto) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:end;margin-top:clamp(36px,7vh,72px);padding-top:22px;border-top:1px solid rgba(255,255,255,.2)}
+.fato b{display:block;color:#fff;font-size:clamp(28px,3vw,40px);font-weight:860;font-variation-settings:"wdth" 122;line-height:1;letter-spacing:-.02em}
+.fato span{font-size:14.5px;color:rgba(255,255,255,.75)}
+.legenda{justify-self:end;text-align:right;font-size:12.5px;color:rgba(255,255,255,.62);max-width:340px}
+.legenda b{display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:2px}
+.legenda a{color:rgba(255,255,255,.7)}
+.barras{display:flex;gap:6px;justify-content:flex-end;margin-top:10px}
+.barras button{width:42px;height:3px;border:0;padding:0;background:rgba(255,255,255,.28);cursor:pointer;position:relative;overflow:hidden}
+.barras button i{position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left}
+.barras button.ativo i{animation:enche var(--tempo,7s) linear forwards}
+.barras button.feito i{transform:none}
+@keyframes enche{to{transform:none}}
+@media (max-width:820px){.rodape-ab{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.fato b{font-size:clamp(22px,6.4vw,40px)}.fato span{font-size:13px;display:block;line-height:1.35;margin-top:4px}.legenda{grid-column:1/-1;justify-self:start;text-align:left}.barras{justify-content:flex-start}}
+@media (prefers-reduced-motion:reduce){.slide,.slide img{transition:none;transform:none}.abertura h1 .ln span,.abertura .lead,.abertura .acoes{animation:none;transform:none;opacity:1}.barras button.ativo i{animation:none;transform:none}}
+
+/* ---------- manifesto ---------- */
+.manifesto{padding:clamp(80px,11vw,140px) 0 clamp(40px,6vw,70px)}
+.manifesto blockquote{margin:0;font-size:clamp(28px,3.9vw,52px);line-height:1.14;font-weight:700;font-variation-settings:"wdth" 112;letter-spacing:-.02em;color:var(--tinta);max-width:22ch}
+.manifesto blockquote span{color:var(--azul)}
+.manifesto .assina{display:flex;align-items:center;gap:14px;margin-top:32px;color:var(--texto);font-size:16px}
+.manifesto .assina svg{width:22px;height:22px;color:var(--coracao)}
+
+/* ---------- RelGov ---------- */
+.relgov .grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,6vw,96px);align-items:start}
+@media (max-width:920px){.relgov .grade{grid-template-columns:1fr}}
+.foto-lateral{position:sticky;top:110px;margin:0}
+.foto-lateral .moldura{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:var(--marinho)}
+.foto-lateral img{width:100%;height:100%;object-fit:cover}
+.foto-lateral figcaption{font-size:12.5px;color:var(--texto);margin-top:10px}
+.foto-lateral .selo{position:absolute;left:18px;bottom:18px;right:18px;background:rgba(14,30,69,.78);backdrop-filter:blur(8px);color:#fff;border-radius:16px;padding:16px 18px;font-size:15.5px;line-height:1.45}
+.foto-lateral .selo b{display:block;font-size:17px;margin-bottom:2px}
+@media (max-width:920px){.foto-lateral{position:relative;top:0}.foto-lateral .moldura{aspect-ratio:16/11}}
+.trilha{list-style:none;margin:40px 0 0;padding:0;counter-reset:e;position:relative}
+.trilha:before{content:"";position:absolute;left:23px;top:24px;bottom:24px;width:2px;background:linear-gradient(var(--gelo),var(--marinho))}
+.trilha li{counter-increment:e;position:relative;padding:0 0 30px 74px}
+.trilha li:last-child{padding-bottom:0}
+.trilha li:before{content:counter(e);position:absolute;left:0;top:0;width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid var(--azul);color:var(--marinho);font-weight:800;display:grid;place-items:center;font-size:18px}
+.trilha li:last-child:before{background:var(--marinho);border-color:var(--marinho);color:#fff}
+.trilha h3{margin:10px 0 4px}
+.trilha p{margin:0;font-size:16.5px}
+.honesto{margin-top:34px;background:var(--papel);border-radius:16px;padding:20px 22px;color:var(--tinta);font-weight:600;display:grid;grid-template-columns:24px minmax(0,1fr);gap:14px}
+.honesto svg{width:24px;height:24px;color:var(--coracao);margin-top:2px}
+
+/* ---------- faixa Brasília ---------- */
+.faixa{position:relative;min-height:78vh;display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--noite)}
+.faixa .fundo{position:absolute;inset:-12% 0;background-size:cover;background-position:center;will-change:transform}
+.faixa:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,18,44,.9),rgba(9,18,44,.45) 60%,rgba(9,18,44,.2))}
+.faixa .wrap{position:relative;z-index:2;width:100%}
+.faixa h2{color:#fff;max-width:14ch}
+.faixa p{color:rgba(255,255,255,.85);margin-top:22px}
+.faixa .credito{position:absolute;z-index:2;right:16px;bottom:12px;font-size:12px;color:rgba(255,255,255,.6)}
+.faixa .credito a{color:inherit}
+
+/* ---------- serviços ---------- */
+.cabeca{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:end;margin-bottom:56px}
+.cabeca p{margin:0}
+@media (max-width:920px){.cabeca{grid-template-columns:1fr}}
+.servicos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 64px}
+@media (max-width:820px){.servicos{grid-template-columns:1fr}}
+.servico{padding:30px 0;border-top:1px solid var(--linha);display:grid;grid-template-columns:52px minmax(0,1fr);gap:18px}
+.servico .ic{width:52px;height:52px;border-radius:16px;background:var(--papel);display:grid;place-items:center;color:var(--azul)}
+.servico .ic svg{width:26px;height:26px}
+.servico p{margin:6px 0 0;font-size:16.5px}
+
+/* ---------- 50+ estratégias ---------- */
+.estrategias{background:var(--noite);color:rgba(255,255,255,.84);position:relative;overflow:hidden}
+.estrategias:before{content:"";position:absolute;width:900px;height:900px;right:-300px;top:-380px;border-radius:50%;background:radial-gradient(circle,rgba(91,180,227,.22),rgba(91,180,227,0) 65%)}
+.estrategias .wrap{position:relative}
+.estrategias h2,.estrategias h3{color:#fff}
+.estrategias .topo-e{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:end;margin-bottom:64px}
+@media (max-width:820px){.estrategias .topo-e{grid-template-columns:1fr}}
+.numero{font-size:clamp(110px,17vw,230px);line-height:.8;font-weight:900;font-variation-settings:"wdth" 125;letter-spacing:-.05em;background:linear-gradient(180deg,#9AD3F2 0%,var(--ceu) 55%,#2E62A8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grupos-e{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:1000px){.grupos-e{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grupos-e{grid-template-columns:1fr}}
+.grupo-e{border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:24px;background:rgba(255,255,255,.03)}
+.grupo-e h3{font-size:18px;margin-bottom:14px}
+.grupo-e ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:16px}
+.grupo-e li{padding-left:18px;position:relative}
+.grupo-e li:before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--ceu)}
+.melhor{margin-top:56px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid rgba(255,255,255,.14);padding-top:36px}
+.melhor p{margin:0;font-size:clamp(20px,2.2vw,26px);color:#fff;font-weight:650;max-width:40ch;line-height:1.35}
+
+/* ---------- para quem ---------- */
+.publicos{display:flex;flex-wrap:wrap;gap:12px;list-style:none;margin:0;padding:0}
+.publicos li{border:1.5px solid var(--linha);border-radius:999px;padding:13px 24px;font-weight:650;color:var(--tinta);font-size:17px;background:#fff}
+
+/* ---------- painel ---------- */
+.painel{background:var(--papel)}
+.painel .grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(36px,6vw,90px);align-items:center}
+@media (max-width:920px){.painel .grade{grid-template-columns:1fr}}
+.recursos{list-style:none;margin:28px 0 32px;padding:0;display:grid;gap:14px}
+.recursos li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;font-size:17px}
+.recursos svg{width:22px;height:22px;color:var(--azul);margin-top:3px}
+.tela{background:#fff;border-radius:22px;padding:26px;box-shadow:0 40px 80px -40px rgba(14,30,69,.45),0 0 0 1px var(--linha)}
+.tela .barra{display:flex;gap:6px;margin-bottom:18px}.tela .barra i{width:10px;height:10px;border-radius:50%;background:var(--linha)}
+.tela h4{margin:0 0 4px;color:var(--tinta);font-size:16px}
+.tela .sub{font-size:13px;margin-bottom:18px}
+.etapas{display:grid;gap:11px}
+.etapas div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center;font-size:14px;color:var(--tinta)}
+.etapas em{display:block;height:12px;border-radius:999px;background:var(--papel);overflow:hidden}
+.etapas em i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--ceu),var(--azul))}
+.etapas div:last-child em i{background:var(--marinho)}
+.tela small{display:block;margin-top:16px;font-size:12px}
+@media (max-width:480px){.etapas div{grid-template-columns:1fr;gap:4px}}
+
+/* ---------- quem está à frente ---------- */
+.lider{background:var(--noite);color:rgba(255,255,255,.84);overflow:hidden}
+.lider .grade{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr);gap:clamp(36px,6vw,96px);align-items:center}
+@media (max-width:920px){.lider .grade{grid-template-columns:1fr}}
+.lider h2,.lider .nome{color:#fff}
+.lider figure{margin:0 auto;position:relative;max-width:360px;width:100%}
+.lider figure:before{content:"";position:absolute;inset:8% -8% -6% 10%;border-radius:28px;background:linear-gradient(160deg,var(--azul),var(--ceu));opacity:.35}
+.lider figure img{position:relative;border-radius:24px;aspect-ratio:3/4;object-fit:cover;object-position:50% 22%;width:100%;height:auto}
+.lider .nome{font-size:clamp(40px,5vw,64px);font-weight:860;font-variation-settings:"wdth" 124;letter-spacing:-.03em;line-height:1;margin:14px 0 22px}
+.lider .cargo{color:var(--gelo);font-weight:600}
+.lider a{color:#fff}
+
+/* ---------- clientes ---------- */
+.logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;list-style:none;margin:0;padding:0}
+.logos li{background:#fff;border:1px solid var(--linha);border-radius:18px;min-height:128px;display:grid;place-items:center;padding:18px;text-align:center;transition:border-color .2s}
+.logos li:hover{border-color:var(--ceu)}
+.logos img{max-height:74px;width:auto;max-width:100%;object-fit:contain}
+.logos .nome{font-weight:700;color:var(--tinta);font-size:15.5px;line-height:1.3;font-variation-settings:"wdth" 104}
+.logos .nome small{display:block;font-weight:500;color:var(--texto);font-size:13px;margin-top:4px}
+
+/* ---------- grupo ---------- */
+.grupo{padding:0 0 clamp(70px,9vw,120px)}
+.grupo .caixa{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(24px,5vw,56px);align-items:center;border:1px solid var(--linha);border-radius:24px;padding:32px 36px}
+.grupo img{width:210px;height:auto}
+.grupo p{margin:0;font-size:18px;color:var(--tinta)}
+@media (max-width:820px){.grupo .caixa{grid-template-columns:1fr}}
+
+/* ---------- contato ---------- */
+.contato{position:relative;color:#fff;overflow:hidden;background:var(--noite)}
+.contato .fundo{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.35}
+.contato:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(9,18,44,.96) 30%,rgba(9,18,44,.7))}
+.contato .wrap{position:relative;z-index:2}
+.contato .grade{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(36px,6vw,90px);align-items:end}
+@media (max-width:920px){.contato .grade{grid-template-columns:1fr}}
+.contato h2{color:#fff;max-width:14ch}
+.contato .lead{color:rgba(255,255,255,.85);margin:22px 0 32px}
+.dados{display:grid;gap:22px;font-size:17px;border-left:1px solid rgba(255,255,255,.2);padding-left:32px;color:rgba(255,255,255,.85)}
+.dados b{display:block;color:var(--gelo);font-size:14px;font-weight:600;margin-bottom:2px}
+.dados a{color:#fff;font-weight:600}
+@media (max-width:920px){.dados{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.2);padding-top:28px}}
+.rodape{background:#0A1633;color:rgba(255,255,255,.62);font-size:14.5px;padding:34px 0}
+.rodape .wrap{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between;align-items:center}
+.rodape a{color:#fff}
+.rodape p{margin:0;max-width:none}
+.zap-flutua{opacity:0;pointer-events:none;transition:opacity .3s;position:fixed;right:18px;bottom:18px;z-index:55;width:62px;height:62px;border-radius:50%;background:var(--zap);display:grid;place-items:center;box-shadow:0 14px 30px rgba(0,0,0,.28);color:#fff}
+.zap-flutua svg{width:32px;height:32px}
+body.rolou .zap-flutua{opacity:1;pointer-events:auto}
+.creditos{font-size:12.5px;color:var(--texto);margin-top:28px}
+</style>
+</head>
+<body>
+
+<header class="topo" id="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="Otimistas Consultoria, início"><img src="img/logo-otimistas.png" alt="Otimistas Consultoria" width="760" height="303"></a>
+    <nav class="menu" id="menu" aria-label="Seções">
+      <a href="#relgov">Como captamos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#estrategias">Estratégias</a>
+      <a href="#quem">Quem somos</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#contato">Contato</a>
+      <a href="/painel/" class="so-cel">Entrar no painel</a>
+    </nav>
+    <a class="btn btn-claro painel-topo" href="/painel/">Entrar no painel</a>
+    <button class="abre" id="abre" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="abertura" aria-label="Apresentação">
+    <div class="desenho" aria-hidden="true">
+      <svg viewBox="0 0 1000 420" fill="none">
+        <g fill="#5BB4E3" fill-opacity=".42">
+          <rect x="470" y="40" width="34" height="300"/><rect x="514" y="40" width="34" height="300"/><rect x="504" y="168" width="10" height="16"/>
+          <path d="M150 300 H880 V318 H150 Z"/><path d="M270 300 Q330 236 390 300 Z"/><path d="M600 262 Q680 312 760 262 L752 300 H608 Z"/>
+          <rect x="60" y="318" width="940" height="14"/>
+        </g>
+        <path d="M0 332 H1000 V420 H0 Z" fill="#5BB4E3" fill-opacity=".14"/>
+      </svg>
+    </div>
+    <div class="slides" id="slides" aria-hidden="true"></div>
+    <div class="conteudo">
+      <div class="wrap">
+        <p class="local"><i></i>Brasília · Congresso Nacional</p>
+        <h1><span class="ln"><span>Captação com</span></span><span class="ln"><span>base em relacionamento</span></span><span class="ln"><span>governamental.</span></span></h1>
+        <p class="lead">Há mais de 10 anos no terceiro setor, a Otimistas leva Santas Casas, hospitais filantrópicos, OSCs e instituições culturais até quem decide os recursos, e acompanha cada pedido até o dinheiro chegar.</p>
+        <div class="acoes">
+          <a class="btn btn-zap" data-zap href="#contato"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>Conversar no WhatsApp</a>
+          <a class="btn btn-claro" href="/painel/">Entrar no painel</a>
+        </div>
+        <div class="rodape-ab">
+          <div class="fato"><b>10+</b><span>anos no terceiro setor</span></div>
+          <div class="fato"><b>50+</b><span>estratégias de captação</span></div>
+          <div class="fato"><b>Semanal</b><span>presença na Câmara e no Senado</span></div>
+          <div class="legenda" id="legenda" aria-live="polite"><div class="barras" id="barras"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="wrap">
+      <blockquote>Recurso público passa por pessoas, prazos e regras. <span>Nós cuidamos das três</span>, para que a sua instituição cuide de gente.</blockquote>
+      <p class="assina"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.5C1 8 3.4 4.5 7 4.5c2 0 3.5 1.1 5 2.8 1.5-1.7 3-2.8 5-2.8 3.6 0 6 3.5 4.6 7C19.5 16.4 12 21 12 21Z"/></svg>Foco em autossustentabilidade para organizações do terceiro setor</p>
+    </div>
+  </section>
+
+  <section class="sec relgov" id="relgov" style="padding-top:clamp(40px,6vw,70px)">
+    <div class="wrap grade">
+      <figure class="foto-lateral">
+        <div class="moldura" id="fotoRelgov"><div class="selo"><b>RelGov na prática</b>Agenda nos gabinetes, nas comissões e nas votações do orçamento, toda semana.</div></div>
+        <figcaption id="credRelgov"></figcaption>
+      </figure>
+      <div>
+        <h2>Captação começa por relacionamento.</h2>
+        <p class="lead" style="margin-top:24px">Emenda parlamentar, programa de ministério ou edital: colocamos a sua organização no lugar certo, na hora certa, com o pedido certo. Cada passo é registrado, e o cliente acompanha tudo em um painel próprio.</p>
+        <ol class="trilha" aria-label="Etapas da captação">
+          <li><h3>Diagnóstico</h3><p>Entendemos a instituição, os projetos, a documentação e as fontes que combinam com ela.</p></li>
+          <li><h3>Relacionamento</h3><p>Mapeamos quem pode apoiar, abrimos portas e apresentamos a demanda aos gabinetes certos.</p></li>
+          <li><h3>Pedido formalizado</h3><p>Ofício, projeto e valores organizados, entregues dentro do prazo de cada janela.</p></li>
+          <li><h3>Indicação e empenho</h3><p>Acompanhamos a indicação, o cadastro da proposta e a resolução de pendências técnicas.</p></li>
+          <li><h3>Recurso pago</h3><p>Seguimos até o dinheiro entrar na conta da instituição e apoiamos a prestação de contas.</p></li>
+        </ol>
+        <div class="honesto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.4 3.4 8 8 9 4.6-1 8-4.6 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg><span>Só chamamos de captado o recurso que foi pago. Sinalização e empenho são etapas, e o cliente vê cada uma delas com clareza.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa" id="faixa" aria-label="Brasília">
+    <div class="fundo" id="fundoFaixa"></div>
+    <div class="wrap">
+      <h2>Onde as decisões acontecem, a Otimistas está presente.</h2>
+      <p class="lead">Conhecemos os gabinetes, as comissões e o calendário do orçamento. A sua instituição chega a Brasília pela porta certa.</p>
+    </div>
+    <p class="credito" id="credFaixa"></p>
+  </section>
+
+  <section class="sec" id="servicos">
+    <div class="wrap">
+      <div class="cabeca">
+        <h2>Orientação e acompanhamento em cada frente.</h2>
+        <p class="lead">Não entregamos um plano e vamos embora. Ficamos ao lado da instituição do primeiro contato ao relatório para a diretoria.</p>
+      </div>
+      <div class="servicos">
+        <div class="servico"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10m14 11V10M9 21v-6h6v6M12 3 3 8h18l-9-5Z"/></svg></span><div><h3>Relações governamentais</h3><p>Agenda com parlamentares e ministérios, articulação com bancadas e comissões, presença semanal no Congresso.</p></div></div>
+        <div class="servico"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><div><h3>Emendas parlamentares</h3><p>Individuais, de bancada e de comissão: ofícios, indicação, cadastro da proposta e acompanhamento até o pagamento.</p></div></div>
+        <div class="servico"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8 11h6M11 8v6"/></svg></span><div><h3>Editais e chamamentos</h3><p>Busca diária de oportunidades abertas a OSCs no Brasil todo e apoio na inscrição.</p></div></div>
+        <div class="servico"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/></svg></span><div><h3>Leis de incentivo e fundos</h3><p>Lei Rouanet, PRONON, PRONAS/PCD, incentivo ao esporte, fundos da infância e do idoso.</p></div></div>
+        <div class="servico"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-6"/></svg></span><div><h3>Sustentabilidade financeira</h3><p>Planejamento para diversificar fontes e diminuir a dependência de um único recurso.</p></div></div>
+        <div class="servico"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span><div><h3>Elaboração de projetos</h3><p>Projetos estruturados no formato que cada fonte pede, com metas, orçamento e documentação.</p></div></div>
+        <div class="servico"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a5 5 0 0 1 10 0M13 20a4 4 0 0 1 8 0"/></svg></span><div><h3>Articulação institucional</h3><p>Pontes com prefeituras, governos estaduais, conselhos, institutos e fundações privadas.</p></div></div>
+        <div class="servico"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 15v-3m5 3V9m5 6v-5"/></svg></span><div><h3>Relatórios executivos</h3><p>Prestação de contas mensal do que avançou: relacionamento, pedidos, sinalizações e recursos.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec estrategias" id="estrategias">
+    <div class="wrap">
+      <div class="topo-e">
+        <div class="numero" aria-hidden="true">50+</div>
+        <div>
+          <h2>Mais de 50 estratégias de captação.</h2>
+          <p class="lead" style="margin-top:20px">Nosso foco é a autossustentabilidade. Trabalhamos com várias fontes ao mesmo tempo e escolhemos, para cada organização, a combinação certa para o seu porte, a sua área e o seu momento.</p>
+        </div>
+      </div>
+      <div class="grupos-e">
+        <div class="grupo-e"><h3>Orçamento federal</h3><ul><li>Emendas individuais</li><li>Emendas de bancada</li><li>Emendas de comissão</li><li>Programas dos ministérios</li><li>Propostas pelo TransfereGov</li></ul></div>
+        <div class="grupo-e"><h3>Leis de incentivo e fundos</h3><ul><li>Lei Rouanet</li><li>PRONON e PRONAS/PCD</li><li>Lei de Incentivo ao Esporte</li><li>Fundos da infância e do idoso</li><li>Fundos estaduais e municipais</li></ul></div>
+        <div class="grupo-e"><h3>Editais e parcerias públicas</h3><ul><li>Chamamentos públicos</li><li>Termos de fomento e colaboração</li><li>Editais estaduais e municipais</li><li>Prêmios para OSCs</li><li>Destinação de penas pecuniárias</li></ul></div>
+        <div class="grupo-e"><h3>Investimento privado</h3><ul><li>Institutos e fundações</li><li>Empresas e cooperativas</li><li>Editais de investimento social</li><li>Doação de pessoas físicas</li><li>Parcerias de longo prazo</li></ul></div>
+      </div>
+      <div class="melhor">
+        <p>A melhor opção do mercado para organizações que querem captar com método, presença em Brasília e transparência em cada etapa.</p>
+        <a class="btn btn-zap" data-zap href="#contato"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>Quero uma estratégia</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="publico">
+    <div class="wrap">
+      <div class="cabeca"><h2>Para quem trabalhamos.</h2><p class="lead">Organizações que cuidam de gente e precisam de recursos para continuar e crescer.</p></div>
+      <ul class="publicos"><li>Santas Casas</li><li>Hospitais filantrópicos</li><li>Organizações da sociedade civil</li><li>Projetos sociais</li><li>Instituições de educação</li><li>Organizações religiosas</li><li>Cultura</li><li>Esporte</li></ul>
+    </div>
+  </section>
+
+  <section class="sec painel" id="painel">
+    <div class="wrap grade">
+      <div>
+        <h2>Cada cliente acompanha a própria captação.</h2>
+        <p class="lead" style="margin-top:22px">Clientes da Otimistas têm acesso a um painel com o andamento de cada pedido, do primeiro contato ao recurso pago.</p>
+        <ul class="recursos">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Quais parlamentares podem destinar recursos para a sua cidade e a sua área</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Calendário oficial de prazos das emendas e do orçamento</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Editais abertos que servem para a sua instituição</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Recursos empenhados e pagos, conferidos no Portal da Transparência</li>
+        </ul>
+        <a class="btn btn-escuro" href="/painel/">Entrar no painel</a>
+      </div>
+      <div class="tela" aria-hidden="true">
+        <div class="barra"><i></i><i></i><i></i></div>
+        <h4>Andamento da captação</h4>
+        <div class="sub">Exemplo ilustrativo das etapas que o cliente acompanha</div>
+        <div class="etapas">
+          <div>Relacionamento<em><i style="width:100%"></i></em></div>
+          <div>Pedido formalizado<em><i style="width:78%"></i></em></div>
+          <div>Sinalização<em><i style="width:52%"></i></em></div>
+          <div>Empenhado<em><i style="width:34%"></i></em></div>
+          <div>Pago<em><i style="width:22%"></i></em></div>
+        </div>
+        <small>Ilustração. Os números de cada cliente aparecem só para ele, com login e senha.</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec lider" id="quem">
+    <div class="wrap grade">
+      <figure><img src="img/phelipe-sales.jpg" alt="Phelipe Sales, de terno azul, em evento" width="820" height="1232"></figure>
+      <div>
+        <p class="cargo">Quem está à frente</p>
+        <p class="nome">Phelipe Sales</p>
+        <p class="lead">Consultor em captação de recursos e relações governamentais, com mais de 10 anos de atuação no terceiro setor.</p>
+        <p>Trabalha com emendas parlamentares, fundos públicos, leis de incentivo e editais, e com a estruturação de projetos e de planos de sustentabilidade financeira para organizações da sociedade civil, hospitais filantrópicos, instituições educacionais, religiosas e culturais.</p>
+        <p>A Otimistas nasceu para transformar relacionamento institucional em resultado concreto para quem transforma vidas.</p>
+        <p><a href="https://www.instagram.com/phelipe_sales1/" target="_blank" rel="noopener">Instagram @phelipe_sales1</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="clientes">
+    <div class="wrap">
+      <div class="cabeca"><h2>Instituições que confiam na Otimistas.</h2><p class="lead">Santas Casas, hospitais, fundações e organizações sociais em vários estados.</p></div>
+      <ul class="logos" id="logos"></ul>
+    </div>
+  </section>
+
+  <section class="grupo" aria-label="Grupo Cipriano Ayala">
+    <div class="wrap">
+      <div class="caixa">
+        <img src="img/grupo-cipriano-ayala.png" alt="Grupo Cipriano Ayala" width="440" height="168">
+        <p>A Otimistas Consultoria faz parte do Grupo Cipriano Ayala.</p>
+        <a class="btn btn-escuro" id="linkGrupo" href="#" target="_blank" rel="noopener">Conhecer o Grupo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec contato" id="contato">
+    <div class="fundo" id="fundoContato"></div>
+    <div class="wrap grade">
+      <div>
+        <h2>Vamos conversar sobre a sua instituição.</h2>
+        <p class="lead">Conte o que a sua organização faz e onde quer chegar. Respondemos pelo WhatsApp.</p>
+        <a class="btn btn-zap" data-zap href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>Conversar no WhatsApp</a>
+      </div>
+      <div class="dados">
+        <div><b>WhatsApp</b><a data-zap href="#">(61) 98514-9406</a></div>
+        <div><b>Endereço</b>SHN Quadra 1, Bloco F, Conjunto A, Sala 713<br>Asa Norte, Brasília/DF<br><a href="https://www.google.com/maps/search/?api=1&query=SHN+Quadra+1+Bloco+F+Asa+Norte+Bras%C3%ADlia" target="_blank" rel="noopener">Ver no mapa</a></div>
+        <div><b>Clientes</b><a href="/painel/">Entrar no painel de captação</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <p>OTIMISTAS RELAÇÕES INSTITUCIONAIS E GOVERNAMENTAIS LTDA · CNPJ 66.831.616/0001-12 · Uma empresa do <a id="linkGrupo2" href="#" target="_blank" rel="noopener">Grupo Cipriano Ayala</a></p>
+    <p>© <span id="ano"></span> Otimistas Consultoria · <a href="#creditos" id="abreCreditos">Créditos das fotos</a></p>
+  </div>
+  <div class="wrap"><p class="creditos" id="creditos" hidden style="color:rgba(255,255,255,.6);max-width:none"></p></div>
+</footer>
+
+<a class="zap-flutua" data-zap href="#" aria-label="Conversar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg></a>
+
+<script>
+/* ===================== CONFIG: o que você pode trocar sem mexer no resto ===================== */
+// Fotos: se existir o arquivo local (img/congresso/...), ele é usado; senão, a foto vem do Wikimedia Commons.
+// Para trocar por fotos próprias, basta subir o arquivo com o mesmo nome em img/congresso.
+const WM = (arq, w) => "https://commons.wikimedia.org/wiki/Special:FilePath/" + encodeURIComponent(arq) + "?width=" + (w || 1920);
+const WMP = arq => "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(arq.replace(/ /g, "_"));
+const CONFIG = {
+  whatsapp: "5561985149406",
+  mensagemZap: "Olá! Vim pelo site da Otimistas e quero conversar sobre captação de recursos para a minha instituição.",
+  linkGrupo: "",            // cole aqui o site do Grupo Cipriano Ayala, ex.: "https://www.grupociprianoayala.com.br"
+  abertura: [
+    { local: "img/congresso/1.jpg", arq: "Congresso Nacional durante o nascer do sol.jpg", titulo: "Congresso Nacional ao amanhecer", credito: "Wikimedia Commons" },
+    { local: "img/congresso/2.jpg", arq: "Plenário do Congresso (14651661588).jpg", titulo: "Plenário do Senado Federal", credito: "Marcos Oliveira/Agência Senado · CC BY 2.0" },
+    { local: "img/congresso/3.jpg", arq: "Congresso Nacional do Brasil em noite de lua cheia.jpg", titulo: "Congresso Nacional à noite", credito: "Wikimedia Commons" },
+    { local: "img/congresso/4.jpg", arq: "Brazilian National Congress.jpg", titulo: "Congresso Nacional", credito: "Eurico Zimbres · CC BY-SA 2.5" }
+  ],
+  relgov: { local: "img/congresso/plenario.jpg", arq: "Plenário do Congresso (14651661588).jpg", credito: "Plenário do Senado. Foto: Marcos Oliveira/Agência Senado, CC BY 2.0" },
+  faixa:  { local: "img/congresso/esplanada.jpg", arq: "Fotos produzidas pelo Senado (36041796984) (edited).jpg", credito: "Esplanada dos Ministérios. Foto: Geraldo Magela/Agência Senado" },
+  contato:{ local: "img/congresso/noite.jpg", arq: "Congresso Nacional do Brasil em noite de lua cheia.jpg", credito: "Congresso Nacional à noite. Wikimedia Commons" },
+  clientes: [
+    { nome: "Santa Casa de Misericórdia de Coromandel", local: "Coromandel/MG", logo: "santa-casa-coromandel.png" },
+    { nome: "Irmandade da Santa Casa de Louveira", local: "Louveira/SP", logo: "santa-casa-louveira.png" },
+    { nome: "Santa Casa de Misericórdia de Sabará", local: "Sabará/MG", logo: "santa-casa-sabara.png" },
+    { nome: "Santa Casa de Misericórdia de Santa Bárbara d'Oeste", local: "Santa Bárbara d'Oeste/SP", logo: "santa-casa-santa-barbara.png" },
+    { nome: "Hospital Evangélico de Mato Grosso", local: "Vila Bela da Santíssima Trindade/MT", logo: "hospital-evangelico-mt.png" },
+    { nome: "Fundação NHR Brasil", local: "", logo: "nhr-brasil.png" },
+    { nome: "GRENDACC", local: "", logo: "grendacc.png" },
+    { nome: "Esparatrapo", local: "", logo: "esparatrapo.png" },
+    { nome: "Núcleo", local: "", logo: "nucleo.png" },
+    { nome: "Sinestesia", local: "", logo: "sinestesia.png" }
+  ]
+};
+/* ============================================================================================= */
+
+const $ = id => document.getElementById(id), calma = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const zap = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.mensagemZap);
+document.querySelectorAll("[data-zap]").forEach(a => { a.href = zap; a.target = "_blank"; a.rel = "noopener"; });
+$("ano").textContent = new Date().getFullYear();
+if (CONFIG.linkGrupo) { $("linkGrupo").href = CONFIG.linkGrupo; $("linkGrupo2").href = CONFIG.linkGrupo; } else { $("linkGrupo").style.display = "none"; $("linkGrupo2").removeAttribute("href"); }
+
+// carrega a foto local; se não houver, a do Wikimedia; se nenhuma abrir, devolve null
+function foto(f, w) { return new Promise(res => { const a = new Image(); a.onload = () => res(f.local);
+  a.onerror = () => { if (!f.arq) return res(null); const b = new Image(); b.onload = () => res(WM(f.arq, w)); b.onerror = () => res(null); b.src = WM(f.arq, w); }; a.src = f.local; }); }
+const usados = [];
+function credita(f, src) { if (src && src.indexOf("commons.wikimedia.org") >= 0 && !usados.some(u => u.arq === f.arq)) usados.push(f); }
+
+// topo transparente sobre a foto, branco ao rolar
+const topo = $("topo"); const pinta = () => { topo.classList.toggle("solido", scrollY > innerHeight * .55 || $("menu").classList.contains("aberto")); document.body.classList.toggle("rolou", scrollY > innerHeight * .8); };
+addEventListener("scroll", pinta, { passive: true }); pinta();
+$("abre").addEventListener("click", () => { const ab = $("menu").classList.toggle("aberto"); $("abre").setAttribute("aria-expanded", ab); pinta(); });
+$("menu").addEventListener("click", e => { if (e.target.closest("a")) { $("menu").classList.remove("aberto"); $("abre").setAttribute("aria-expanded", "false"); pinta(); } });
+
+// abertura: fotos do Congresso em transição
+(async function () {
+  const ok = []; (await Promise.all(CONFIG.abertura.map(f => foto(f, 2400)))).forEach((s, i) => { if (s) { ok.push({ ...CONFIG.abertura[i], src: s }); credita(CONFIG.abertura[i], s); } });
+  creditos();
+  if (!ok.length) return;
+  const caixa = $("slides"), barras = $("barras"), leg = $("legenda"), T = 7000;
+  const txt = document.createElement("div"); leg.insertBefore(txt, barras);
+  ok.forEach((f, i) => { const d = document.createElement("div"); d.className = "slide" + (i ? "" : " ativo"); d.innerHTML = `<img src="${f.src}" alt="">`; caixa.appendChild(d);
+    if (ok.length > 1) { const b = document.createElement("button"); b.setAttribute("aria-label", "Foto " + (i + 1) + ": " + f.titulo); b.innerHTML = "<i></i>"; b.onclick = () => { vai(i); reinicia(); }; barras.appendChild(b); } });
+  barras.style.setProperty("--tempo", T + "ms");
+  let at = 0, timer = null;
+  function vai(n) { const s = caixa.children, bs = barras.children; s[at].classList.remove("ativo"); at = (n + ok.length) % ok.length; s[at].classList.add("ativo");
+    [...bs].forEach((b, k) => { b.classList.remove("ativo", "feito"); void b.offsetWidth; if (k < at) b.classList.add("feito"); if (k === at) b.classList.add("ativo"); });
+    txt.innerHTML = `<b>${ok[at].titulo}</b>${ok[at].credito}`; }
+  function reinicia() { if (timer) clearInterval(timer); if (ok.length > 1 && !calma) timer = setInterval(() => vai(at + 1), T); }
+  vai(0); reinicia();
+})();
+
+// demais fotos
+(async function () {
+  const r = await foto(CONFIG.relgov, 1200); if (r) { const im = new Image(); im.src = r; im.alt = "Plenário do Congresso Nacional"; $("fotoRelgov").prepend(im); $("credRelgov").textContent = CONFIG.relgov.credito; credita(CONFIG.relgov, r); }
+  const f = await foto(CONFIG.faixa, 2200); if (f) { $("fundoFaixa").style.backgroundImage = `url("${f}")`; $("credFaixa").textContent = CONFIG.faixa.credito; credita(CONFIG.faixa, f); }
+  const c = await foto(CONFIG.contato, 2000); if (c) { $("fundoContato").style.backgroundImage = `url("${c}")`; credita(CONFIG.contato, c); }
+  creditos();
+})();
+function creditos() { $("creditos").innerHTML = usados.length ? "Fotos via Wikimedia Commons: " + usados.map(f => `<a href="${WMP(f.arq)}" target="_blank" rel="noopener">${f.arq.replace(/\.jpg$/i, "")}</a>${f.credito && f.credito !== "Wikimedia Commons" ? " (" + f.credito + ")" : ""}`).join("; ") + ". Autoria e licença na página de cada foto." : "Fotos da Otimistas Consultoria."; }
+$("abreCreditos").addEventListener("click", e => { e.preventDefault(); $("creditos").hidden = !$("creditos").hidden; });
+
+// faixa de Brasília com leve movimento ao rolar
+if (!calma) { const fx = $("fundoFaixa"), sec = $("faixa");
+  addEventListener("scroll", () => { const r = sec.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return; fx.style.transform = `translateY(${(r.top / innerHeight) * -8}%)`; }, { passive: true }); }
+
+// clientes: nome primeiro, logo quando o arquivo existir
+CONFIG.clientes.forEach(c => { const li = document.createElement("li"); li.innerHTML = `<span class="nome">${c.nome}${c.local ? `<small>${c.local}</small>` : ""}</span>`;
+  if (c.logo) { const img = new Image(); img.alt = c.nome; img.onload = () => { li.innerHTML = ""; li.appendChild(img); }; img.src = "img/clientes/" + c.logo; }
+  $("logos").appendChild(li); });
+</script>
+</body>
+</html>

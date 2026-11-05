@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /painel/
+Sitemap: https://otimistasconsultoria.com.br/sitemap.xml
