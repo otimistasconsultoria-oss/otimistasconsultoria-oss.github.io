@@ -1,0 +1,6 @@
+Fotos da abertura do site (passam sozinhas, uma a cada 7 segundos).
+Suba aqui até 4 fotos com estes nomes: 1.jpg, 2.jpg, 3.jpg, 4.jpg
+Tamanho ideal: 1920 px de largura, até 500 KB cada (horizontal).
+Use fotos suas (equipe no Congresso, visitas, audiências) ou fotos oficiais da Agência Câmara / Agência Senado
+com o crédito do fotógrafo. Para mostrar o crédito, preencha o campo "credito" em CONFIG no final do index.html.
+Enquanto não houver fotos, aparece um desenho do Congresso.

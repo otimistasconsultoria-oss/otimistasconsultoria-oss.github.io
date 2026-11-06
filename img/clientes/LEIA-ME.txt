@@ -1,0 +1,6 @@
+Logos dos clientes (PNG com fundo transparente, ou JPG com fundo branco).
+Use exatamente estes nomes de arquivo:
+santa-casa-coromandel.png, santa-casa-louveira.png, santa-casa-sabara.png, santa-casa-santa-barbara.png,
+hospital-evangelico-mt.png, nhr-brasil.png, grendacc.png, esparatrapo.png, nucleo.png, sinestesia.png
+Enquanto o logo não estiver aqui, o site mostra o nome da instituição.
+Para incluir ou tirar um cliente, edite a lista "clientes" em CONFIG no final do index.html.
